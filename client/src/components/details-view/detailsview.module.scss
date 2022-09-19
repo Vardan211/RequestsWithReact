@@ -1,0 +1,26 @@
+.detailsview {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 300px;
+
+  .content {
+    display: flex;
+    flex-flow: column;
+    padding: 30px 60px 0 60px;
+
+    .title {
+      font-size: 16px;
+    }
+  }
+
+  .popup {
+    display: flex;
+    flex-flow: column;
+    padding: 30px 60px;
+    background-color: bisque;
+  }
+}
+
+.open {
+  grid-template-columns: 0.3fr 0.7fr;
+}

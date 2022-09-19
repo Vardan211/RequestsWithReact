@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Requests.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:Requests.Infrastructure.Exceptions.NotFoundException">
+            <summary>
+            Ответ с сообщением об ошибке
+            </summary>
+        </member>
+        <member name="T:Requests.Infrastructure.Extensions.DiExtensions">
+            <summary>
+            Расширения подключения зависимостей
+            </summary>
+        </member>
+        <member name="M:Requests.Infrastructure.Extensions.DiExtensions.AddInfrastructureLayer(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Подключение зависимостей Infrastructure
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <param name="configuration"><see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+        <member name="P:Requests.Infrastructure.Options.LdapOptions.Domain">
+            <summary>
+            Домейн
+            </summary>
+        </member>
+        <member name="P:Requests.Infrastructure.Options.LdapOptions.Username">
+            <summary>
+            Имя пользователя
+            </summary>
+        </member>
+        <member name="P:Requests.Infrastructure.Options.LdapOptions.Password">
+            <summary>
+            Пароль
+            </summary>
+        </member>
+        <member name="T:Requests.Infrastructure.Repositories.LdapUserRepository">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.LdapUserRepository.GetUser(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.LdapUserRepository.GetUsersByGroups(System.String[],System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Requests.Infrastructure.Repositories.RequestRepository">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestRepository.CreateAsync(Requests.Domain.Models.Request,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestRepository.GetAllRequestsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestRepository.GetByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestRepository.GetRequestsByUserIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestRepository.UpdateRequest(Requests.Domain.Models.Request,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestRepository.DeleteRequest(Requests.Domain.Models.Request,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Requests.Infrastructure.Repositories.RequestTemplateRepository">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestTemplateRepository.GetRequestTemplateByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.RequestTemplateRepository.GetRequestTemplateListAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Requests.Infrastructure.Repositories.SettingRepository">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.SettingRepository.CreateSettingAsync(Requests.Domain.Models.Setting,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.SettingRepository.DeleteSettingAsync(Requests.Domain.Models.Setting,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.SettingRepository.GetSettingByKeyAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.SettingRepository.GetAllSettingsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Requests.Infrastructure.Repositories.SettingRepository.UpdateSettingAsync(Requests.Domain.Models.Setting,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

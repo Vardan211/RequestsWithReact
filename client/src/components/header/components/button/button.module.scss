@@ -1,0 +1,16 @@
+.button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #005a9ec9;
+  }
+}
+
+.selected {
+  background-color: #005a9ec9;
+}

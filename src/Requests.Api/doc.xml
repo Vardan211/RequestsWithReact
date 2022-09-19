@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Requests.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Requests.Api.Controllers.Ldap.V1.LdapController">
+            <summary>
+            Контроллер для Ldap
+            </summary>
+        </member>
+        <member name="M:Requests.Api.Controllers.Ldap.V1.LdapController.#ctor(MediatR.IMediator)">
+            <summary>
+            Инициализирует экземпляр класса контроллера "Ldap" <see cref="T:Requests.Api.Controllers.Ldap.V1.LdapController"/> class
+            </summary>
+            <param name="mediator"><see cref="T:MediatR.IMediator"/></param>
+        </member>
+        <member name="M:Requests.Api.Controllers.Ldap.V1.LdapController.GetLdapUsersAsync(Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersQuery,System.Threading.CancellationToken)">
+            <summary>
+            Получение пользователей групп LDAP
+            </summary>
+            <param name="query"><see cref="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersQuery"/></param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.Ldap.V1.LdapController.GetLdapUserByIdentityAsync(Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityQuery,System.Threading.CancellationToken)">
+            <summary>
+            Получение пользователя LDAP
+            </summary>
+            <param name="query"><see cref="T:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityQuery"/></param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="T:Requests.Api.Controllers.Requests.V1.RequestsController">
+            <summary>
+            Контроллер для заявок
+            </summary>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.#ctor(MediatR.IMediator)">
+            <summary>
+            Инициализирует экземпляр класса контроллера "Заявки" <see cref="N:Requests.Api.Controllers.RequestTemplatesController"/> class
+            </summary>
+            <param name="mediator"><see cref="T:MediatR.IMediator"/></param>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.CreateRequestAsync(Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Создание заявки
+            </summary>
+            <param name="request"><see cref="T:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand"/></param>
+            <param name="ldapUserId">Идентификатор пользователя LDAP</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.GetRequestsAsync(Requests.Application.Requests.V1.GetRequests.GetRequestsQuery,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Получение заявок
+            </summary>
+            <param name="request"><see cref="T:Requests.Application.Requests.V1.GetRequests.GetRequestsQuery"/></param>
+            <param name="ldapUserId">Идентификатор пользователя LDAP</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.GetRequestAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Получение заявки
+            </summary>
+            <param name="id">Идентификатор заявки</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.ApproveAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Подтвердить заявку
+            </summary>
+            <param name="id">Идентификатор заявки</param>
+            <param name="ldapUserId">Идентификатор пользователя в LDAP</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.DeclineAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Отменить подтверждение заявки
+            </summary>
+            <param name="id">Идентификатор заявки</param>
+            <param name="ldapUserId">Идентификатор пользователя в LDAP</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.Requests.V1.RequestsController.RecallAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Отозвать заявку
+            </summary>
+            <param name="id">Идентификатор заявки</param>
+            <param name="ldapUserId">Идентификатор пользователя в LDAP</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="T:Requests.Api.Controllers.RequestTemplatesController.V1.RequestTemplatesController">
+            <summary>
+            Контроллер для шаблонов заявок
+            </summary>
+        </member>
+        <member name="M:Requests.Api.Controllers.RequestTemplatesController.V1.RequestTemplatesController.#ctor(MediatR.IMediator)">
+            <summary>
+            Инициализирует экземпляр класса контроллера "Шаблоны Заявок" <see cref="T:Requests.Api.Controllers.RequestTemplatesController.V1.RequestTemplatesController"/> class
+            </summary>
+            <param name="mediator"><see cref="T:MediatR.IMediator"/></param>
+        </member>
+        <member name="M:Requests.Api.Controllers.RequestTemplatesController.V1.RequestTemplatesController.GetRequestTemplateByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Получение шаблона заявок по идентификатору
+            </summary>
+            <param name="id">Идентификатор</param>
+            <param name="token"></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="M:Requests.Api.Controllers.RequestTemplatesController.V1.RequestTemplatesController.GetRequestTemplateListAsync(Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplateListQuery,System.Threading.CancellationToken)">
+            <summary>
+            Получение списка шаблонов заявок
+            </summary>
+            <param name="query"><see cref="T:Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplateListQuery"/></param>
+            <param name="token"></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="T:Requests.Api.Controllers.Settings.V1.SettingsController">
+            <summary>
+            Контроллер для Настроек
+            </summary>
+        </member>
+        <member name="M:Requests.Api.Controllers.Settings.V1.SettingsController.#ctor(MediatR.IMediator)">
+            <summary>
+            Инициализирует экземпляр класса контроллера "Шаблоны Заявок" <see cref="N:Requests.Api.Controllers.RequestTemplatesController"/> class
+            </summary>
+            <param name="mediator"><see cref="T:MediatR.IMediator"/></param>
+        </member>
+        <member name="M:Requests.Api.Controllers.Settings.V1.SettingsController.GetTabsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Получение вкладок
+            </summary>
+            <param name="ldapUserId">Идентификатор пользователя Ldap</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/></returns>
+        </member>
+        <member name="T:Requests.Api.Extensions.DiExtensions">
+            <summary>
+            Расширения подключения зависимостей
+            </summary>
+        </member>
+        <member name="M:Requests.Api.Extensions.DiExtensions.RegisterLayers(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Подключение зависимостей Layers
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <param name="configuration"><see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+        <member name="M:Requests.Api.Extensions.DiExtensions.RegisterOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Подключение настроек
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <param name="configuration"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+        <member name="T:Requests.Api.Middlewares.ErrorHandlingMiddleware">
+            <summary>
+            Middleware обработки исключений
+            </summary>
+        </member>
+        <member name="M:Requests.Api.Middlewares.ErrorHandlingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Api.Middlewares.ErrorHandlingMiddleware"/> class
+            </summary>
+            <param name="next"><see cref="T:Microsoft.AspNetCore.Http.RequestDelegate"/></param>
+        </member>
+        <member name="M:Requests.Api.Middlewares.ErrorHandlingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            InvokeAsync
+            </summary>
+            <param name="httpContext"><see cref="T:Microsoft.AspNetCore.Http.HttpContext"/></param>
+            <returns><see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="T:Requests.Api.ErrorResponse">
+            <summary>
+            Ответ с сообщением об ошибке
+            </summary>
+        </member>
+        <member name="P:Requests.Api.ErrorResponse.Message">
+            <summary>
+            Сообщение об ошибке
+            </summary>
+        </member>
+    </members>
+</doc>

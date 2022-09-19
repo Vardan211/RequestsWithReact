@@ -1,0 +1,26 @@
+.createrequest {
+  display: flex;
+  flex-flow: column;
+  padding: 30px 60px 60px 60px;
+
+  .templatelist {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .templateitem {
+      display: flex;
+      padding: 8px;
+      border: 1px solid white;
+      background-color: rgb(255 255 255);
+      text-align: left;
+      font-weight: 400;
+      border-bottom-style: solid;
+      border-bottom-color: #0000001f;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ededed;
+      }
+    }
+  }
+}

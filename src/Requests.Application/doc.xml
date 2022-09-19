@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Requests.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Requests.Application.Abstractions.ILdapUserRepository">
+            <summary>
+            Репозиторий для пользователей
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ILdapUserRepository.GetUsersByGroups(System.String[],System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения пользователей по группам
+            </summary>
+            <param name="groups">Группы</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ILdapUserRepository.GetUser(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения пользователя
+            </summary>
+            <param name="uuid">Guid пользователя</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="T:Requests.Application.Abstractions.IRequestRepository">
+            <summary>
+            Репозиторий для заявок
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestRepository.CreateAsync(Requests.Domain.Models.Request,System.Threading.CancellationToken)">
+            <summary>
+            Метод для создания заявки
+            </summary>
+            <param name="request"><see cref="T:Requests.Domain.Models.Request"/></param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestRepository.GetByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения заявки
+            </summary>
+            <param name="id">Идентификатор Заявки</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestRepository.GetRequestsByUserIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения всех заявок по Id
+            </summary>
+            <param name="userId">Идентификатор пользователя</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestRepository.GetAllRequestsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения всех заявок
+            </summary>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestRepository.UpdateRequest(Requests.Domain.Models.Request,System.Threading.CancellationToken)">
+            <summary>
+            Метод для обновления заявки
+            </summary>
+            <param name="request"><see cref="T:Requests.Domain.Models.Request"/></param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestRepository.DeleteRequest(Requests.Domain.Models.Request,System.Threading.CancellationToken)">
+            <summary>
+            Метод для удаления заявки
+            </summary>
+            <param name="request"><see cref="T:Requests.Domain.Models.Request"/></param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="T:Requests.Application.Abstractions.IRequestTemplateRepository">
+            <summary>
+            Репозиторий для шаблонов заявок
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestTemplateRepository.GetRequestTemplateByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения шаблона по идентификатору
+            </summary>
+            <param name="id">Индентификатор шаблона</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.IRequestTemplateRepository.GetRequestTemplateListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Метод для получения всех шаблонов
+            </summary>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Requests.Application.Abstractions.ISettingRepository">
+            <summary>
+            Репозиторий для настроек
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ISettingRepository.GetSettingByKeyAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Получить настройку по ключу
+            </summary>
+            <param name="key">Ключ</param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ISettingRepository.GetAllSettingsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Получить все настройки
+            </summary>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ISettingRepository.CreateSettingAsync(Requests.Domain.Models.Setting,System.Threading.CancellationToken)">
+            <summary>
+            Создать настройку
+            </summary>
+            <param name="setting"><see cref="T:Requests.Domain.Models.Setting"/></param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ISettingRepository.UpdateSettingAsync(Requests.Domain.Models.Setting,System.Threading.CancellationToken)">
+            <summary>
+            Изменить настройку
+            </summary>
+            <param name="setting"><see cref="T:Requests.Domain.Models.Setting"/></param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Requests.Application.Abstractions.ISettingRepository.DeleteSettingAsync(Requests.Domain.Models.Setting,System.Threading.CancellationToken)">
+            <summary>
+            Удалить настройку
+            </summary>
+            <param name="setting"><see cref="T:Requests.Domain.Models.Setting"/></param>
+            <param name="token"><see cref="T:System.Threading.CancellationToken"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Requests.Application.Enums.SortType">
+            <summary>
+            Тип сортировки
+            </summary>
+        </member>
+        <member name="F:Requests.Application.Enums.SortType.Asc">
+            <summary>
+            По возрастанию
+            </summary>
+        </member>
+        <member name="F:Requests.Application.Enums.SortType.Desc">
+            <summary>
+            По убыванию
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Exceptions.AppException">
+            <summary>
+            Исключение слоя Application
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Extensions.DiExtensions">
+            <summary>
+            Расширения подключения зависимостей Application
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Extensions.DiExtensions.AddApplicationLayer(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Подключение зависимостей
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+        <member name="M:Requests.Application.Extensions.RequestExtensions.CheckApprove(Requests.Domain.Models.Request)">
+            <summary>
+            Метод для проверки согласованности
+            </summary>
+            <param name="request"><see cref="T:Requests.Domain.Models.Request"/></param>
+            <returns>Согласовано/Не согласовано</returns>
+        </member>
+        <member name="M:Requests.Application.Extensions.RequestExtensions.CheckApproverCanSeeRequest``1(Requests.Domain.Models.Request,System.String[],``0)">
+            <summary>
+            Метод для проверки, может ли согласующий видеть конкретную заявку
+            </summary>
+            <typeparam name="T"><see cref="T:Requests.Domain.Models.IApprovable"/></typeparam>
+            <param name="request">Заявка</param>
+            <param name="groupsConsecutive">Группы Согласующих по очереди</param>
+            <param name="approver">Согласующий</param>
+            <returns></returns>
+            <exception cref="T:Requests.Application.Exceptions.AppException"></exception>
+        </member>
+        <member name="T:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityQuery">
+            <summary>
+            Запрос получения пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityQuery.UserIdentity">
+            <summary>
+            Identity пользователя (UUID | Email)
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityResponse.Id">
+            <summary>
+            ID пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityResponse.UserName">
+            <summary>
+            ФИО пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityResponse.Groups">
+            <summary>
+            Группы пользователя LDAP
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Ldap.V1.GetLdapUserByIdentity.GetLdapUserByIdentityResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUserResponse">
+            <summary>
+            Ldap User
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUserResponse.Id">
+            <summary>
+            ID пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUserResponse.UserName">
+            <summary>
+            ФИО пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUserResponse.Groups">
+            <summary>
+            Группы пользователя LDAP
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUserResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUserResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersQuery">
+            <summary>
+            Запрос поиска пользователей LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersQuery.GroupNames">
+            <summary>
+            Названия групп LDAP
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersQuery.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersQuery"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersResponse">
+            <summary>
+            Groups of Ldap users
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersResponse.Groups">
+            <summary>
+            Группы
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Ldap.V1.GetLdapUsers.GetLdapUsersResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Ldap.V1.GetLdapUsers.LdapGroupResponse">
+            <summary>
+            Groups of Ldap users
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.LdapGroupResponse.GroupName">
+            <summary>
+            Имя группы
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Ldap.V1.GetLdapUsers.LdapGroupResponse.Users">
+            <summary>
+            Пользователи группы
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Ldap.V1.GetLdapUsers.LdapGroupResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Ldap.V1.GetLdapUsers.LdapGroupResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.ApproveRequest.ApproveRequestCommand">
+            <summary>
+            Команда согласования заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.ApproveRequest.ApproveRequestCommand.Id">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.ApproveRequest.ApproveRequestCommand.LdapUserId">
+            <summary>
+            Идентификатор согласуещего
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand">
+            <summary>
+            Команда создания заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand.RequestTemplateId">
+            <summary>
+            Идентификтаор шаблона
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand.RequestData">
+            <summary>
+            JSON с данными заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand.LdapUserId">
+            <summary>
+            ID автора заявки LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand.PrimaryApprovers">
+            <summary>
+            ID апруверов уровня approverGroups
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.CreateRequest.CreateRequestCommand.SecondaryApprovers">
+            <summary>
+            ID апруверов уровня solutionGroups
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.CreateRequest.CreateRequestResponse">
+            <summary>
+            Ответ на запрос создания заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.CreateRequest.CreateRequestResponse.RequestId">
+            <summary>
+            ID заявки
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.DeclineRequest.DeclineRequestCommand">
+            <summary>
+            Команда отклонение заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.DeclineRequest.DeclineRequestCommand.Id">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.DeclineRequest.DeclineRequestCommand.LdapUserId">
+            <summary>
+            Идентификатор согласуещего
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequests.GetRequestsQuery">
+            <summary>
+            Запрос заявкок для пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.GetRequestsQuery.LdapUserId">
+            <summary>
+            ID пользователя LDAP
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequests.GetRequestsResponse">
+            <summary>
+            Ответ на запрос заявкок для пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.GetRequestsResponse.Requests">
+            <summary>
+            Список своих заявок
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.GetRequestsResponse.RequestForApprove">
+            <summary>
+            Список назначенных на согласование заявок
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.GetRequestsResponse.AllRequests">
+            <summary>
+            Список всех заявок (для супер пользователя)
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Requests.V1.GetRequests.GetRequestsResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Requests.V1.GetRequests.GetRequestsResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequests.RequestForApproveResponse">
+            <summary>
+            Назначенная на согласование заявка
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestForApproveResponse.Id">
+            <summary>
+            ID заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestForApproveResponse.Name">
+            <summary>
+            Название заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestForApproveResponse.AuthorName">
+            <summary>
+            ФИО автора заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestForApproveResponse.IsApproved">
+            <summary>
+            Статус согласования заявки
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequests.RequestResponse">
+            <summary>
+            Своя заявка
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestResponse.Id">
+            <summary>
+            ID заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestResponse.Name">
+            <summary>
+            Название заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequests.RequestResponse.IsApproved">
+            <summary>
+            Статус согласования заявки
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequest.GetRequestQuery">
+            <summary>
+            Запрос заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestQuery.RequestId">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequest.GetRequestResponse">
+            <summary>
+            Ответ на запрос заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.Id">
+            <summary>
+            ID заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.RequestData">
+            <summary>
+            JSON с данными заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.LdapUserId">
+            <summary>
+            ID автора заявки LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.AuthorName">
+            <summary>
+            ФИО автора заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.IsApproved">
+            <summary>
+            Подтверждение
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.PrimaryApproverGroupLdapUsers">
+            <summary>
+            ID апруверов уровня approverGroups
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.SecondaryApproverGroupLdapUsers">
+            <summary>
+            ID апруверов уровня solutionGroups
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Requests.V1.GetRequest.GetRequestResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Requests.V1.GetRequest.GetRequestResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.GetRequest.LdapUserResponse">
+            <summary>
+            Ldap User в ответе на запрос заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.LdapUserResponse.Id">
+            <summary>
+            ID пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.LdapUserResponse.UserName">
+            <summary>
+            ФИО пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.LdapUserResponse.Groups">
+            <summary>
+            Группы пользователя LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.GetRequest.LdapUserResponse.IsApproved">
+            <summary>
+            Подтверждение
+            </summary>
+        </member>
+        <member name="M:Requests.Application.Requests.V1.GetRequest.LdapUserResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Requests.Application.Requests.V1.GetRequest.LdapUserResponse"/> class
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Requests.V1.RecallRequest.RecallRequestCommand">
+            <summary>
+            Команда удаления заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.RecallRequest.RecallRequestCommand.Id">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Requests.V1.RecallRequest.RecallRequestCommand.LdapUserId">
+            <summary>
+            Идентификатор автора заявки
+            </summary>
+        </member>
+        <member name="T:Requests.Application.RequestTemplates.V1.GetRequestTemplateById.GetRequestTemplateByIdQuery">
+            <summary>
+            Запрос получения шаблона
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateById.GetRequestTemplateByIdQuery.Id">
+            <summary>
+            Идентификатор шаблона
+            </summary>
+        </member>
+        <member name="T:Requests.Application.RequestTemplates.V1.GetRequestTemplateById.GetRequestTemplateByIdResponse">
+            <summary>
+            Сущность представляющая собой модель шаблона заявок
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateById.GetRequestTemplateByIdResponse.Id">
+            <summary>
+            Идентификатор шаблона
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateById.GetRequestTemplateByIdResponse.Name">
+            <summary>
+            Название
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateById.GetRequestTemplateByIdResponse.Template">
+            <summary>
+            Шаблон
+            </summary>
+        </member>
+        <member name="T:Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplate">
+            <summary>
+            Сущность представляющая собой модель шаблона заявок
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplate.Id">
+            <summary>
+            Идентификатор шаблона
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplate.Name">
+            <summary>
+            Название
+            </summary>
+        </member>
+        <member name="T:Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplateListResponse">
+            <summary>
+            Сущность представляющая собой cписок шаблонов заявок
+            </summary>
+        </member>
+        <member name="P:Requests.Application.RequestTemplates.V1.GetRequestTemplateList.GetRequestTemplateListResponse.Templates">
+            <summary>
+            Список шаблонов
+            </summary>
+        </member>
+        <member name="T:Requests.Application.Settings.V1.GetTabs.GetTabsQuery">
+            <summary>
+            Запрос вкладок для пользователя
+            </summary>
+        </member>
+        <member name="P:Requests.Application.Settings.V1.GetTabs.GetTabsQuery.LdapUserId">
+            <summary>
+            ID пользователя LDAP
+            </summary>
+        </member>
+    </members>
+</doc>

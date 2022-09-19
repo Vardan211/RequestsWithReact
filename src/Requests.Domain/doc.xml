@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Requests.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Requests.Domain.Constants.SettingsNames">
+            <summary>
+            Названия наястроек
+            </summary>
+        </member>
+        <member name="F:Requests.Domain.Constants.SettingsNames.RequestViewer">
+            <summary>
+            Настройка для просмотра всех заявок
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Constants.TabsNames">
+            <summary>
+            Названия вкладок
+            </summary>
+        </member>
+        <member name="F:Requests.Domain.Constants.TabsNames.AllRequests">
+            <summary>
+            Все заявки
+            </summary>
+        </member>
+        <member name="F:Requests.Domain.Constants.TabsNames.MyRequests">
+            <summary>
+            Мои заявки
+            </summary>
+        </member>
+        <member name="F:Requests.Domain.Constants.TabsNames.CreateRequest">
+            <summary>
+            Новая заявка
+            </summary>
+        </member>
+        <member name="F:Requests.Domain.Constants.TabsNames.RequestsForApprove">
+            <summary>
+            Я согласую
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Exceptions.DomainException">
+            <summary>
+            Исключение слоя Domain
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Extensions.DiExtensions">
+            <summary>
+            Расширения подключения зависимостей
+            </summary>
+        </member>
+        <member name="M:Requests.Domain.Extensions.DiExtensions.AddDomainLayer(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Подключение зависимостей Domain
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+        <member name="P:Requests.Domain.Models.IApprovable.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.IApprovable.LdapUserId">
+            <summary>
+            Идентификатор согласующего
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.IApprovable.RequestId">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.IApprovable.Approved">
+            <summary>
+            Статус согласования
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.IApprovable.GroupName">
+            <summary>
+            Имя группы согласующего
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Models.LdapUser">
+            <summary>
+            Пользователь LDAP
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.LdapUser.Id">
+            <summary>
+            Идентификатор пользователя
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.LdapUser.UserName">
+            <summary>
+            Имя пользователя
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.LdapUser.Groups">
+            <summary>
+            Группы пользователя
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Models.PrimaryApprove">
+            <summary>
+            Первичное одобрение
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.PrimaryApprove.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.PrimaryApprove.LdapUserId">
+            <summary>
+            Идентификатор согласующего
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.PrimaryApprove.RequestId">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.PrimaryApprove.Approved">
+            <summary>
+            Статус согласования
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.PrimaryApprove.GroupName">
+            <summary>
+            Имя группы согласующего
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Models.Request">
+            <summary>
+            Заявка
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Request.Id">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Request.RequestData">
+            <summary>
+            Данные заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Request.AuthorName">
+            <summary>
+            ФИО автора заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Request.CreateDate">
+            <summary>
+            Дата создания
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Request.RequestTemplateId">
+            <summary>
+            Внешный ключ для RequestTemplate
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Request.LdapUserId">
+            <summary>
+            Идентификатор пользователя
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Models.RequestTemplate">
+            <summary>
+            Щаблон заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.RequestTemplate.Id">
+            <summary>
+            Идентификатор шаблона
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.RequestTemplate.Name">
+            <summary>
+            Название
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.RequestTemplate.Template">
+            <summary>
+            Шаблон
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Models.SecondaryApprove">
+            <summary>
+            Вторичное одобрение
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.SecondaryApprove.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.SecondaryApprove.LdapUserId">
+            <summary>
+            Идентификатор согласующего
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.SecondaryApprove.RequestId">
+            <summary>
+            Идентификатор заявки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.SecondaryApprove.Approved">
+            <summary>
+            Статус согласования
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.SecondaryApprove.GroupName">
+            <summary>
+            Имя группы согласующего
+            </summary>
+        </member>
+        <member name="T:Requests.Domain.Models.Setting">
+            <summary>
+            Настройки
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Setting.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Setting.Key">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Requests.Domain.Models.Setting.Value">
+            <summary>
+            Значение
+            </summary>
+        </member>
+    </members>
+</doc>
